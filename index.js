@@ -29,3 +29,11 @@ fs.readdirSync('./commands').forEach(dir => {
    
   }
 });
+
+client.on("messageCreate", (message) => {
+  const { prefix } = clientInfo;
+
+  if(message.author.bot) return;
+
+  if(message.content == "<@983543085415952414>" || message.content == "<@983543085415952414>") return message.reply({"content": null, "embeds": [{"author": {"name": "Olá "+message.author.tag+"!", "iconURL": message.author.displayAvatarURL({dynamic: true})}, "description": "Meu prefixo é **`b!`**"}]});
+});
