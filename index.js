@@ -35,5 +35,5 @@ client.on("messageCreate", (message) => {
 
   if(message.author.bot) return;
 
-  if(message.content == "<@983543085415952414>" || message.content == "<@!983543085415952414>") return message.reply({"content": null, "embeds": [{"author": {"name": "Olá "+message.author.tag+"!", "iconURL": message.author.displayAvatarURL({dynamic: true})}, "description": "Meu prefixo é **`b!`**"}]});
+  if(message.content == "<@983543085415952414>" || message.content == "<@!983543085415952414>") return message.reply({"content": null, "embeds": [{"author": {"name": "Olá "+message.author.tag+"!", "iconURL": message.author.displayAvatarURL({dynamic: true})}, "description": "Meu prefixo é **`b!`**", "color": 15844367}]});
 });
