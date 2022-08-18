@@ -12,5 +12,20 @@ client.on("ready", async() => { // Caso o bot esteja pronto...
   console.table([{tag: client.user.tag, id: client.user.id, status: "Pronto"}]);
 });
 
-client.commands = new Discord.Collection()
-client.aliases = new Discord.Collection()
+client.commands = new Discord.Collection(); // Representa os comandos
+client.aliases = new Discord.Collection(); // Representa os sinônimos
+
+fs.readdirSync('./commands').forEach(dir => {
+  let commands = fs.readdirSync("./commands/"+dir).filter(file => file.endsWith('.js'));
+
+  for(let file of commands) {
+   let Push = require(`./commands/${dir}/${file}`); // Pegando dados dos comandos
+
+    if (Push.name) {
+      client.commands.set(Push.name, Push)
+    }
+    if (Push.aliases && Array.isArray(Push.aliases))
+      Push.aliases.forEach(x => client.aliases.set(x, Push.name))
+   
+  }
+});
